@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mario Kart Random</title>
+    <br>
+	<div id="MKG">
+	<button class="btn btn-primary" v-on:click='generateRandom'>Generate Random</button>
+	<br>
+	<label id="output">
+	{{output}}
+	</label>
+	<br>
+	<ul id="list">
+		<li v-for="item in list"> {{ item }}</li>
+	</ul>
+	
+	
+	
+	</div>
+	
+    <script src="https://unpkg.com/vue@2"></script>
+    <script>
+        var MKG = new Vue({
+            el: "#MKG",
+            data: {
+                output: '',
+                list: [
+                
+                ],
+            },
+            methods: {
+        generateRandom: function (){
+              	CHARACTERS = [
+ 			["Baby Mario", "Baby Luigi", "Baby Peach", "Baby Daisy", "	Toad", 		"Toadette", 		"Koopa Troopa", "Dry Bones","Small Mii"]
+,["Mario", "Luigi", "Peach", "Daisy", "Yoshi", "Birdo", "Diddy Kong", "Bowser Jr","Medium Mii"]
+,["Wario", "Waluigi", "Donkey Kong", "Bowser", "King Boo", "Rosalina", "Funky Kong", "Dry Bowser","Large Mii"]
+]
+VEHICLES = [
+["Standard Kart S", "Standard Bike S", "Booster Seat", "Bullet Bike", "Mini Beast", "Bit Bike", "Cheep Charger", "Quacker", "Tiny Titan", "Magikruiser", "Blue Falcon", "Jet Bubble"]
+ ,["Standard Kart M", "Standard Bike M", "Classic Dragster", "Mach Bike", "Wild Wing", "Sugarscoot", "Super Blooper", "Zip Zip", "Daytripper", "Sneakster", "Sprinter", "Dolphin Dasher"]
+,["Standard Kart L", "Standard Bike L", "Offroader", "Flame Runner", "Flame Flyer", "Wario Bike", "Piranha Prowler", "Shooting Star" , "Jetsetter", "Spear", "Honey Coupe", "Phantom"]
+]	
+			var size = Math.floor(Math.random() * 3);
+			var character = Math.floor(Math.random() * 9);
+			var vehicle = Math.floor(Math.random() * 12);
+              		this.list.push(CHARACTERS[size][character] +  " in the " + VEHICLES[size][vehicle]);
+              
+              
+              },
+
+            },
+            
+        });
+    </script>
+    
+    </html>
